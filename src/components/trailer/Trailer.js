@@ -1,11 +1,13 @@
-import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
+import { useParams } from "react-router-dom"
 import "./Trailer.css";
+
+import React from "react";
 
 const Trailer = () => {
 
-    let params = userParams();
-    const key = prams.ytTrailerId;
+    let params = useParams();
+    const key = params.ytTrailerId;
 
     return (
         <div className="contenedor-reproductor-react">

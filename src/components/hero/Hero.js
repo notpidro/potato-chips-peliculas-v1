@@ -3,6 +3,7 @@ import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Hero = ({movies}) => {
     return (
@@ -22,11 +23,13 @@ const Hero = ({movies}) => {
                                                 <h4>{movie.title}</h4>
                                             </div>
                                             <div className="contenedor-botones-trailer">
-                                                <div className="contenedor-icono-boton-play">
-                                                    <FontAwesomeIcon className="icono-boton-play"
-                                                        icon={faCirclePlay}
-                                                    />
-                                                </div>
+                                                <Link to={`/Trailer/${movie.trailerLink.substring(movie.trailerLink.length - 11)}`} >
+                                                    <div className="contenedor-icono-boton-play">
+                                                        <FontAwesomeIcon className="icono-boton-play"
+                                                            icon={faCirclePlay}
+                                                        />
+                                                    </div>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

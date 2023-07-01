@@ -22,18 +22,18 @@ const Reviews = ({getMovieData, movie, reviews, setReviews}) => {
         const rev = revText.current;
 
         try {
+            const response = await api.post("/api/v1/reviews", {reviewBody:rev.value, imdbId:movieId});
+    
+            const updateReviews = [...reviews, {body:rev.value}];
+    
+            rev.value = "";
+    
+            setReviews(updateReviews);
 
         } catch (err) {
             console.error(err)
         }
 
-        const response = await api.post("/api/v1/reviews", {reviewBody:rev.value, imdbId:movieId});
-
-        const updateReviews = [...reviews,{body:rev.value}];
-
-        rev.value = "";
-
-        setReviews(updateReviews);
 
     }
 
